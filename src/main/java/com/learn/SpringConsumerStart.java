@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @ClassName: SpringStart   
@@ -18,7 +18,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @Copyright: 2018 www.yunqi.com Inc. All rights reserved.
  */
 @SpringBootApplication
-@EnableEurekaClient  // 创建服务提供者
+@EnableDiscoveryClient  // 发现服务
 public class SpringConsumerStart {
 	private static Logger log = LoggerFactory.getLogger(SpringConsumerStart.class);
 	/**
