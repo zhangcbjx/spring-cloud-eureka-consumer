@@ -1,12 +1,12 @@
-/**
- * 
- */
 package com.learn.action;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import com.learn.service.MyUserService;
 
 /**
  * @ClassName: HelloAction   
@@ -19,9 +19,14 @@ import org.springframework.web.client.RestTemplate;
 public class HelloAction {
 	@Autowired
     private RestTemplate restTemplate;
+	@Autowired
+	private MyUserService myUserService;
     
     @GetMapping("/hello")
     public String sayHello() {
+    	System.out.println("通过@FeignClient方式调用：" + myUserService.get());
+    	System.out.println("通过RestTemplate方式调用：" + 
+    			restTemplate.getForObject("http://hello-provider/hello/get", String.class));
         return restTemplate.getForObject("http://hello-provider/hello/get", String.class);
     }
 }
