@@ -19,7 +19,7 @@ public class HystrixClientFallbackFactory implements FallbackFactory<FeignUserSe
 		return new FeignUserService() {
 			@Override
 			public String get() {
-				System.out.println(cause.getMessage());
+				System.out.println(cause.getLocalizedMessage());
 				return null;
 			}
 		};
