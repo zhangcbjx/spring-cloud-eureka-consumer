@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 2018年11月20日 下午5:02:09
  * @Copyright: 2018 www.yunqi.com Inc. All rights reserved.
  */
-@FeignClient(value = "hello-provider", fallback = FeignUserFallback.class)
+// @FeignClient(value = "hello-provider", fallback = FeignUserFallback.class)
+@FeignClient(value = "hello-provider", fallbackFactory = HystrixClientFallbackFactory.class)
 public interface FeignUserService {
 	@RequestMapping(value = "hello/get", method = RequestMethod.GET)
 	@ResponseBody
