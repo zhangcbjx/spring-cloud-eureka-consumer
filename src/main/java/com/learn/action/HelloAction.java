@@ -25,8 +25,10 @@ public class HelloAction {
     @GetMapping("/hello")
     public String sayHello() {
     	System.out.println("通过@FeignClient方式调用：" + feignUserService.get());
+    	/*
     	System.out.println("通过RestTemplate方式调用：" + 
     			restTemplate.getForObject("http://hello-provider/hello/get", String.class));
-        return restTemplate.getForObject("http://hello-provider/hello/get", String.class);
+    	*/
+        return "调用成功";
     }
 }
