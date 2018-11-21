@@ -1,5 +1,7 @@
 package com.learn.service;
 
+import org.springframework.stereotype.Component;
+
 import feign.hystrix.FallbackFactory;
 
 /**
@@ -9,6 +11,7 @@ import feign.hystrix.FallbackFactory;
  * @date 2018年11月21日 下午2:25:49 
  * @Copyright: 2018 www.yunqi.com Inc. All rights reserved.
  */
+@Component
 public class HystrixClientFallbackFactory implements FallbackFactory<FeignUserService> {
 
 	@Override
