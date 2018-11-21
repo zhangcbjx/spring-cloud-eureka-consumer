@@ -6,6 +6,10 @@ eureka:
     register-with-eureka: false
     serviceUrl:
       defaultZone: http://localhost:9000/eureka/
+#服务降级
+feign: 
+ hystrix: 
+  enabled: true
       
 #服务名
 spring:
